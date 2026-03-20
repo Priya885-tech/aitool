@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Generate Quiz | StudyGen AI</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+<div class="app">
+
+ <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <img src="image.png" alt="logo">
+      </div>
+      <span>StudyGen AI</span>
+    </div>
+
+    <nav>
+  <a href="dashboard2.html">
+    <i data-lucide="layout-dashboard"></i>
+    Dashboard
+  </a>
+
+ <a href="generate-notes.html" >
+  <i data-lucide="file-text"></i>
+  Generate Notes
+</a>
+
+  <a href="generate-quiz.html" class="active">
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</a>
+
+
+  <a>
+    <i data-lucide="history"></i>
+    History
+  </a>
+
+  <a>
+    <i data-lucide="user"></i>
+    Profile
+  </a>
+</nav>
+
+
+    <a class="logout">Sign Out</a>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+    <h1>Generate Quiz</h1>
+    <p class="subtitle">Test your knowledge with AI-generated questions</p>
+
+    <!-- Quiz Type -->
+    <section class="card">
+      <h3>Quiz Type</h3>
+      <div class="options">
+        <div class="option active">
+          <input type="radio" checked />
+          <div>
+            <strong>MCQ</strong>
+            <span>Multiple choice</span>
+          </div>
+        </div>
+
+        <div class="option">
+          <input type="radio" />
+          <div>
+            <strong>Short Answer</strong>
+            <span>Brief responses</span>
+          </div>
+        </div>
+
+        <div class="option">
+          <input type="radio" />
+          <div>
+            <strong>Mixed</strong>
+            <span>Combined types</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Difficulty -->
+    <section class="card">
+      <h3>Difficulty Level</h3>
+      <div class="options">
+        <div class="option">
+          <input type="radio" />
+          <strong>Easy</strong>
+        </div>
+
+        <div class="option active orange">
+          <input type="radio" checked />
+          <strong>Medium</strong>
+        </div>
+
+        <div class="option">
+          <input type="radio" />
+          <strong>Hard</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topic -->
+    <section class="card info">
+      <h3>Cell Biology: Chapter 5</h3>
+      <p>
+        Quiz will be generated based on your most recent notes.
+        You can also select from your saved notes.
+      </p>
+    </section>
+
+    <!-- Button -->
+    <button class="start-btn" id="startQuizBtn">▶ Start Quiz</button>
+
+<div id="quizOutput" style="margin-top: 30px;"></div>
+
+
+  </main>
+</div>
+<script>
+  document.querySelectorAll(".option").forEach(opt => {
+    opt.addEventListener("click", () => {
+      const parent = opt.parentElement;
+      parent.querySelectorAll(".option").forEach(o => o.classList.remove("active"));
+      opt.classList.add("active");
+      opt.querySelector("input").checked = true;
+    });
+  });
+
+  
+</script>
+
+<script>
+  const startBtn = document.getElementById("startQuizBtn");
+  const quizOutput = document.getElementById("quizOutput");
+
+  startBtn.addEventListener("click", () => {
+    const quizData = JSON.parse(localStorage.getItem("quizData"));
+
+    if (!quizData || quizData.length === 0) {
+      alert("No quiz data found. Please generate quiz first.");
+      return;
+    }
+
+    quizOutput.innerHTML = "";
+
+    quizData.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.classList.add("card");
+      div.style.marginBottom = "20px";
+
+      div.innerHTML = `
+        <p><strong>Q${index + 1}. ${q.question}</strong></p>
+        ${q.options
+          .map(
+            opt =>
+              `<label>
+                <input type="radio" name="q${index}"> ${opt}
+              </label><br>`
+          )
+          .join("")}
+      `;
+
+      quizOutput.appendChild(div);
+    });
+  });
+</script>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
