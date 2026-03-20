@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile | StudyGen AI</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+<div class="app">
+ <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <img src="image.png" alt="logo">
+      </div>
+      <span>StudyGen AI</span>
+    </div>
+
+    <nav>
+  <a href="dashboard2.html">
+    <i data-lucide="layout-dashboard"></i>
+    Dashboard
+  </a>
+
+ <a href="generate-notes.html" >
+  <i data-lucide="file-text"></i>
+  Generate Notes
+</a>
+
+        <a href="recoreded-classes.html" >
+          <i data-lucide="mic"></i>Recorded Classes</a>
+
+  <a href="generate-quiz.html">
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</a>
+
+
+  <a href="history.html">
+    <i data-lucide="history"></i>
+    History
+  </a>
+
+  <a href="profile.html" class="active">
+    <i data-lucide="user"></i>
+    Profile
+  </a>
+
+  
+
+
+
+    <a class="logout">Sign Out</a>
+  </aside>
+
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <h1>Profile</h1>
+    <p class="subtitle">Manage your account settings</p>
+
+    <!-- User Card -->
+    <div class="card user-card">
+      <div class="avatar">👤</div>
+      <div>
+        <h3>John Doe</h3>
+        <span class="role">Student</span>
+      </div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="card info-card">
+      <div class="icon">📧</div>
+      <div>
+        <span class="label">Email</span>
+        <p>john.doe@university.edu</p>
+      </div>
+    </div>
+
+    <div class="card info-card">
+      <div class="icon">🎓</div>
+      <div>
+        <span class="label">Institution</span>
+        <p>State University</p>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <h2 class="section-title">Settings</h2>
+
+    <div class="card action-card">
+      <div class="left">
+        ⚙️ <span>Account Settings</span>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="card action-card danger">
+      <div class="left">
+        🚪 <span>Sign Out</span>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <!-- Stats -->
+    <h2 class="section-title">Your Stats</h2>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h3 class="blue">12</h3>
+        <span>Notes Created</span>
+      </div>
+
+      <div class="stat-card">
+        <h3 class="green">8</h3>
+        <span>Quizzes Taken</span>
+      </div>
+
+      <div class="stat-card">
+        <h3 class="orange">85%</h3>
+        <span>Avg Score</span>
+      </div>
+    </div>
+
+  </main>
+</div>
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recorded Classes</title>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Use your existing dashboard/sidebar CSS -->
+  <link rel="stylesheet" href="dashboard.css" />
+  <style>
+
+     .main {
+      padding: 32px 40px;
+      background: #f8fafc;
+      min-height: 100vh;
+    }
+
+    /* TOP BAR */
+    .recorded-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      padding: 12px 16px;
+      border-radius: 10px;
+      width: 380px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .record-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+    }
+
+    /* LIST */
+    .recorded-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .record-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .record-left {
+      display: flex;
+      gap: 14px;
+    }
+
+    .record-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #e0e7ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2563eb;
+    }
+
+    .record-info h4 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .record-meta {
+      font-size: 12px;
+      color: #64748b;
+      margin: 4px 0;
+    }
+
+    .record-preview {
+      font-size: 13px;
+      color: #475569;
+      max-width: 620px;
+    }
+
+    .record-time {
+      font-size: 12px;
+      color: #64748b;
+      white-space: nowrap;
+    }
+
+  </style>
+
+ 
+</head>
+
+<body>
+
+<div class="layout">
+
+ <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <img src="image.png" alt="logo">
+      </div>
+      <span>StudyGen AI</span>
+    </div>
+
+    <nav>
+  <a href="dashboard2.html">
+    <i data-lucide="layout-dashboard"></i>
+    Dashboard
+  </a>
+
+ <a href="generate-notes.html" >
+  <i data-lucide="file-text"></i>
+  Generate Notes
+</a>
+
+ <a href="recoreded-classes.html" class="active" >
+    <i data-lucide="mic"></i>Recorded Classes</a>
+
+  <a href="generate-quiz.html">
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</a>
+
+
+  <a href="history.html">
+    <i data-lucide="history"></i>
+    History
+  </a>
+
+  <a href="profile.html">
+    <i data-lucide="user"></i>
+    Profile
+  </a>
+
+  
+
+
+
+    <a class="logout">Sign Out</a>
+  </aside>
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <!-- TOP BAR -->
+    <div class="recorded-top">
+      <div class="search-box">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Search by title, keyword, or date" />
+      </div>
+
+      <button class="record-btn">
+        <i data-lucide="mic"></i>
+        Record Class
+      </button>
+    </div>
+
+    <!-- RECORDED LIST -->
+    <div class="recorded-list">
+
+      <div class="record-card">
+        <div class="record-left">
+          <div class="record-icon"><i data-lucide="mic"></i></div>
+          <div class="record-info">
+            <h4>Cell Biology – Chapter 5</h4>
+            <div class="record-meta">45 min • Jan 5, 2026</div>
+            <div class="record-preview">
+              Today we discussed mitosis stages including prophase, metaphase, anaphase...
+            </div>
+          </div>
+        </div>
+        <div class="record-time">2 hours ago</div>
+      </div>
+
+      <div class="record-card">
+        <div class="record-left">
+          <div class="record-icon"><i data-lucide="mic"></i></div>
+          <div class="record-info">
+            <h4>Physics – Motion & Laws</h4>
+            <div class="record-meta">38 min • Jan 3, 2026</div>
+            <div class="record-preview">
+              Covered Newton’s laws with examples and real-life applications...
+            </div>
+          </div>
+        </div>
+        <div class="record-time">Yesterday</div>
+      </div>
+
+      <div class="record-card">
+        <div class="record-left">
+          <div class="record-icon"><i data-lucide="mic"></i></div>
+          <div class="record-info">
+            <h4>Chemistry – Thermodynamics</h4>
+            <div class="record-meta">52 min • Dec 30, 2025</div>
+            <div class="record-preview">
+              Introduction to enthalpy, entropy, and Gibbs free energy...
+            </div>
+          </div>
+        </div>
+        <div class="record-time">3 days ago</div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+<script>
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

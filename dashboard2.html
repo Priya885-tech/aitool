@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard | StudyGen AI</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <img src="image.png" alt="logo">
+      </div>
+      <span>StudyGen AI</span>
+    </div>
+
+    <nav>
+  <a class="active">
+    <i data-lucide="layout-dashboard"></i>
+    Dashboard
+  </a>
+
+ <a href="generate-notes.html" >
+  <i data-lucide="file-text"></i>
+  Generate Notes
+</a>
+
+        <a href="recoreded-classes.html" >
+          <i data-lucide="mic"></i>Recorded Classes</a>
+
+  <a href="generate-quiz.html">
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</a>
+
+
+  <a href="history.html">
+    <i data-lucide="history"></i>
+    History
+  </a>
+
+  <a href="profile.html">
+    <i data-lucide="user"></i>
+    Profile
+  </a>
+
+  
+
+
+
+    <a class="logout">Sign Out</a>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <h1>Hello, Student <span>👋</span></h1>
+<p class="sub">
+  Ready to learn something new today? Let's get started!
+</p>
+<div class="stats">
+
+  <div class="stat-card">
+    <div class="stat-text">
+      <p class="stat-title">Total Notes<br>Generated</p>
+      <h2>24</h2>
+      <span class="stat-change">+3 this week</span>
+    </div>
+
+    <div class="stat-icon blue">
+      <i data-lucide="file-text"></i>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-text">
+      <p class="stat-title">Total Quizzes<br>Taken</p>
+      <h2>18</h2>
+      <span class="stat-change">+5 this week</span>
+    </div>
+
+    <div class="stat-icon green">
+      <i data-lucide="help-circle"></i>
+    </div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-text">
+      <p class="stat-title">Average Score</p>
+      <h2>85%</h2>
+      <span class="stat-change">+2% improvement</span>
+    </div>
+
+    <div class="stat-icon blue">
+      <i data-lucide="target"></i>
+    </div>
+  </div>
+
+</div>
+
+
+<h3 class="section-title">
+  <i data-lucide="trending-up"></i>
+  Quick Actions
+</h3>
+
+<div class="quick-actions">
+
+  <!-- LEFT : Generate Notes (PRIMARY) -->
+  <div class="quick-card primary">
+    <div class="qa-icon">
+      <i data-lucide="file-text"></i>
+    </div>
+
+    <h3>Generate Notes</h3>
+    <p>
+      Create AI-powered study notes from any topic or syllabus.
+      Perfect for exam preparation.
+    </p>
+
+    <a href="generate-notes.html" class="qa-link">
+      Get Started <i data-lucide="arrow-right"></i>
+    </a>
+  </div>
+
+  <!-- RIGHT : Generate Quiz -->
+  <div class="quick-card">
+    <div class="qa-icon light">
+      <i data-lucide="help-circle"></i>
+    </div>
+
+    <h3>Generate Quiz</h3>
+    <p>
+      Test your knowledge with custom quizzes.
+      Choose your topic and number of questions.
+    </p>
+
+    <a href="generate-quiz.html" class="qa-link blue">
+      Get Started <i data-lucide="arrow-right"></i>
+    </a>
+  </div>
+
+</div>
+
+<section class="recent-activity">
+  <h3>Recent Activity</h3>
+  <!-- activity cards -->
+</section>
+
+
+<ul class="activity">
+
+  <li class="activity-item">
+    <div class="left">
+      <div class="activity-icon blue">
+        <i data-lucide="file-text"></i>
+      </div>
+      <div>
+        <strong>Biology Chapter 5 Notes</strong>
+        <p>Notes</p>
+      </div>
+    </div>
+    <span class="time">2 hours ago</span>
+  </li>
+
+  <li class="activity-item">
+    <div class="left">
+      <div class="activity-icon green">
+        <i data-lucide="help-circle"></i>
+      </div>
+      <div>
+        <strong>Physics MCQ Quiz</strong>
+        <p>Quiz</p>
+      </div>
+    </div>
+    <span class="time">Yesterday</span>
+  </li>
+
+</ul>
+<ul class="activity">
+  <li class="activity-item">
+    <div class="left">
+      <div class="activity-icon blue">
+        <i data-lucide="file-text"></i>
+      </div>
+      <div>
+        <strong>Chemistry Lab Report</strong>
+        <p>Notes</p>
+      </div>
+    </div>
+    <span class="time">3 days ago</span>
+  </li>
+</ul>
+
+
+  </main>
+
+</div>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+</body>
+
+</body>
+</html>

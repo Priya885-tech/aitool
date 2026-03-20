@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Generate Notes | StudyGen AI</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">
+          <img src="image.png" alt="logo">
+        </div>
+        <span>StudyGen AI</span>
+      </div>
+
+      <nav>
+        <a href="dashboard2.html">
+          <i data-lucide="layout-dashboard"></i>
+          Dashboard
+        </a>
+
+        <a href="generate-notes.html" class="active">
+          <i data-lucide="file-text"></i>
+          Generate Notes
+        </a>
+
+        <a href="recoreded-classes.html"><i data-lucide="mic"></i>Recorded Classes</a>
+
+        <a href="generate-quiz.html">
+          <i data-lucide="help-circle"></i>
+          Generate Quiz
+        </a>
+
+
+        <a href="history.html">
+          <i data-lucide="history"></i>
+          History
+        </a>
+
+        <a href="profile.html">
+          <i data-lucide="user"></i>
+          Profile
+        </a>
+
+
+
+
+
+        <a class="logout">Sign Out</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <h1>Generate Notes</h1>
+      <p class="sub">
+        Upload your lecture material and let AI create structured notes
+      </p>
+
+      <!-- Upload card -->
+      <div class="card">
+        <h3>Upload Lecture File</h3>
+
+        <div class="upload-box" onclick="document.getElementById('lectureFile').click()">
+          <div class="upload-icon">
+            <i data-lucide="upload"></i>
+          </div>
+          <strong>Drop your file here, or click to browse</strong>
+          <p>Supports video, audio, PDF, DOC files</p>
+
+          <input type="file" id="lectureFile" hidden accept="video/*,audio/*,.pdf,.doc,.docx,.ppt,.pptx" />
+        </div>
+
+
+      </div>
+
+      <div class="or-text">or paste link</div>
+
+      <!-- Paste text -->
+      <div class="card">
+        <h3>Paste Lecture Link</h3>
+
+        <input type="url" class="lecture-link-input" placeholder="Paste lecture link (YouTube link)" required />
+      </div>
+
+
+
+      <!-- AI Info box -->
+      <div class="ai-info">
+        <i data-lucide="sparkles"></i>
+        <p>
+          <strong>AI will summarize and structure your content</strong> —
+          creating clear headings, bullet points, highlighted keywords,
+          and definition boxes for easy studying.
+        </p>
+      </div>
+
+      <!-- Generate Button -->
+      <button class="generate-btn" id="generateNotesBtn" type="button">
+  <i data-lucide="file-text"></i>
+  Generate Notes
+</button>
+
+ <input type="file" id="lectureFile" hidden />
+
+    <div id="notesOutput"></div>
+
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+  
+  lucide.createIcons();
+
+  const generateBtn = document.getElementById("generateNotesBtn");
+  const fileInput = document.getElementById("lectureFile");
+  const notesOutput = document.getElementById("notesOutput");
+
+  generateBtn.addEventListener("click", () => {
+    if (!fileInput.files.length) {
+      alert("Please upload a lecture file first");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    fetch("http://127.0.0.1:8000/api/notes/generate", {
+      method: "POST",
+      body: formData
+    })
+      .then(res => res.json())
+      .then(data => {
+        notesOutput.innerText = data.notes;
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Error generating notes");
+      });
+  });
+</script>
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Quiz</title>
+</head>
+<link rel="stylesheet" href="dashboard.css">
+<body>
+  
+  <div class="layout">
+   <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">
+        <img src="image.png" alt="logo">
+      </div>
+      <span>StudyGen AI</span>
+    </div>
+
+    <nav>
+  <a href="dashboard2.html">
+    <i data-lucide="layout-dashboard"></i>
+    Dashboard
+  </a>
+
+ <a href="generate-notes.html" >
+  <i data-lucide="file-text"></i>
+  Generate Notes
+</a>
+
+        <a href="recoreded-classes.html" ><i data-lucide="mic"></i>Recorded Classes</a>
+
+  <a href="generate-quiz.html">
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</a>
+
+
+  <a href="history.html">
+    <i data-lucide="history"></i>
+    History
+  </a>
+
+  <a href="profile.html">
+    <i data-lucide="user"></i>
+    Profile
+  </a>
+
+  
+
+
+
+    <a class="logout">Sign Out</a>
+  </aside>
+
+
+  <main class="main">
+  <h1>Generate Quiz</h1>
+<p class="sub">Create AI-powered quizzes from your study material</p>
+
+<!-- RESOURCE CARDS -->
+<div class="resource-grid">
+
+  <!-- CARD 1: RECENT NOTES -->
+  <div class="card resource-card">
+    <h3>Use Recent Notes</h3>
+    <p>Select from your recently generated notes</p>
+
+    <select class="resource-select" onchange="enableQuizBtn()">
+      <option value="">Choose a note</option>
+      <option>Biology Chapter 5</option>
+      <option>Chemistry Lab Report</option>
+      <option>Physics Motion Notes</option>
+      <option>Maths Integration Notes</option>
+    </select>
+  </div>
+
+  <!-- CARD 2: UPLOAD -->
+  <div class="card resource-card">
+    <h3>Upload Resource</h3>
+    <p>Upload PDF, PPT or DOC file</p>
+
+    <div class="upload-box" onclick="document.getElementById('quizFile').click()">
+      <i data-lucide="upload"></i>
+      <span>Click to upload</span>
+      <input type="file" id="quizFile" hidden onchange="enableQuizBtn()">
+    </div>
+  </div>
+
+  <!-- CARD 3: TOPIC -->
+  <div class="card resource-card">
+    <h3>Enter Topic</h3>
+    <p>Generate quiz directly from a topic</p>
+
+    <input
+      type="text"
+      class="resource-input"
+      placeholder="e.g. Thermodynamics"
+      oninput="enableQuizBtn()"
+    >
+  </div>
+
+</div>
+
+<!-- AI INFO -->
+<div class="ai-info">
+  <i data-lucide="sparkles"></i>
+  <p>
+    <strong>AI will generate concept-based quiz questions</strong> —
+    including MCQs and instant evaluation.
+  </p>
+</div>
+
+<!-- BUTTON -->
+<button id="quizBtn" class="generate-btn disabled" type="button">
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</button>
+
+  <i data-lucide="help-circle"></i>
+  Generate Quiz
+</a>
+
+
+  </main>
+  </div>
+  <script>
+  function enableQuizBtn() {
+    document.getElementById("quizBtn").disabled = false;
+    document.getElementById("quizBtn").classList.remove("disabled");
+  }
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+<script>
+  const quizBtn = document.getElementById("quizBtn");
+
+  quizBtn.addEventListener("click", () => {
+    fetch("http://127.0.0.1:8000/api/quiz/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        notes: "Sample notes for quiz generation",
+        quizType: "mcq",
+        difficulty: "medium"
+      })
+    })
+      .then(res => res.json())
+      .then(data => {
+        // ✅ STORE QUIZ
+        localStorage.setItem("quizData", JSON.stringify(data.quiz));
+
+        // ✅ THEN NAVIGATE
+        window.location.href = "start-quiz.html";
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Quiz generation failed");
+      });
+  });
+</script>
+
+
+</body>
+</html>
